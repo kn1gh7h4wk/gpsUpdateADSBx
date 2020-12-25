@@ -14,8 +14,10 @@ if [ -z $DEVICES ] ; then # A GPS device must be configured for this script/serv
 fi
 if [ -f /boot/adsb-config.txt ] ; then # This script checks to make sure the ADSBx config file is present,
                                        # since it has only been tested with the ADSBx Buster image
+    apt update
+  
   if [ "$(command -v awk | wc -l)" -eq 0 ] ; then # Installing required packages if missing
-        apt install gawk -y
+    apt install gawk -y
   fi
   if [ "$(command -v bc | wc -l)" -eq 0 ] ; then # Installing required packages if missing
     apt install bc -y
